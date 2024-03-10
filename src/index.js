@@ -11,22 +11,22 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 
-const TASKS = [
-	"Do 10 reps of machine exercise (Joe's Gym)",
-	'Pour water (Kitchen)',
-	'Sink 1 ball (Billards table)',
-	"Flip water bottle (Michael's room)",
-	'Wash your hands (basement bathroom)',
-	'Wash your hands (1st floor bathroom)',
-	'Take elevator',
-	'Spin 8, 9, or 10 in Life game (Hearth room)',
-	'Beat Smash (Upstairs guest room)',
-	'Hit a layup (Basketball court)',
-	'Take photo (Green screen)',
-	// 'Mess with Jack (basement)',
-	'Bounce ping pong ball 10 times (front door)',
-	'Take a lap (Around pool)',
-	'Flip a pillow (Activity room)'
+let TASKS = [
+	// "Do 10 reps of machine exercise (Joe's Gym)",
+	// 'Pour water (Kitchen)',
+	// 'Sink 1 ball (Billards table)',
+	// "Flip water bottle (Michael's room)",
+	// 'Wash your hands (basement bathroom)',
+	// 'Wash your hands (1st floor bathroom)',
+	// 'Take elevator',
+	// 'Spin 8, 9, or 10 in Life game (Hearth room)',
+	// 'Beat Smash (Upstairs guest room)',
+	// 'Hit a layup (Basketball court)',
+	// 'Take photo (Green screen)',
+	// // 'Mess with Jack (basement)',
+	// 'Bounce ping pong ball 10 times (front door)',
+	// 'Take a lap (Around pool)',
+	// 'Flip a pillow (Activity room)'
 ];
 const N_TASKS = 5;
 const N_IMPOSTORS = 1;
@@ -49,6 +49,30 @@ io.on('connection', socket => {
 			io.of('/').sockets.size
 		}`
 	);
+
+	socket.on('add-task', function (taskObject) {
+		// add task to list of tasks
+		console.log("Added task: " + taskObject["task"]);
+		TASKS.push(taskObject["task"]);
+	})
+
+	socket.on('remove-task', function (taskObject) {
+		// remove task from list of tasks
+		console.log("Removed task: " + taskObject["task"]);
+		TASKS = TASKS.filter(function(item) {
+			return item !== taskObject["task"]
+		});
+	})
+
+	socket.on('start-game-probe', () => {
+		if (TASKS.length >= 5) {
+			// game can start with this number of tasks
+			socket.emit('game-started');
+		}
+		else {
+			socket.emit('insufficient-tasks');
+		}
+	})
 
 	socket.on('start-game', () => {
 		// Get player sockets

@@ -1,3 +1,6 @@
+/**
+ * Socket and game start behaviour
+ */
 const socket = io({
 	query: {
 		role: 'ADMIN'
@@ -7,8 +10,66 @@ const socket = io({
 const startGame$ = document.querySelector('#start-game');
 
 startGame$.addEventListener('click', () => {
-	socket.emit('start-game');
+	socket.emit('start-game-probe');
+	socket.on('game-started', function () {
+		socket.emit('start-game');
+		let startButton = document.getElementById("start-game");
+		startButton.style.color = "darkgray";
+		startButton.style.background = "gray";
+		startButton.innerText = "Game Started";
+		let taskSection = document.getElementById("task-management");
+		taskSection.style.display = "none";
+	})
 });
+
+/**
+ * Adding tasks
+ */
+
+const inputBox = document.getElementById("task-input-box");
+const listContainer = document.getElementById("list-container");
+
+function addTask() {
+	if (inputBox.value === '') {
+		console.log('no task added');
+	}
+	else {
+		let li = document.createElement("li");
+		li.innerHTML = inputBox.value;
+		li.id = inputBox.value;
+		listContainer.appendChild(li);
+		let span = document.createElement("span");
+		span.innerHTML = "\u00d7";
+		span.style.color = "red";
+		li.appendChild(span);
+		socket.emit('add-task', { task: inputBox.value});
+		console.log('new task added: ' + inputBox.value);
+	}
+	inputBox.value = "";
+	// saveData();
+}
+
+listContainer.addEventListener("click", function(e) {
+	if (e.target.tagName === "SPAN") {
+		let taskToRemove = e.target.parentElement.id;
+		e.target.parentElement.remove();
+		socket.emit('remove-task', {task: taskToRemove})
+		console.log('task removed: ' + taskToRemove);
+		// saveData();
+	}
+}, false);
+
+// // to remove
+// function saveData() {
+// 	localStorage.setItem("data", listContainer.innerHTML);
+// }
+
+// // to remove
+// function showTasks() {
+// 	listContainer.innerHTML = localStorage.getItem("data");
+// }
+
+// showTasks();
 
 /**
  * Sounds

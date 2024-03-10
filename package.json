@@ -3,6 +3,7 @@
 	"version": "1.0.0",
 	"description": "gamer",
 	"main": "src/index.js",
+	"bin": "src/index.js",
 	"scripts": {
 		"start": "node src/index.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
@@ -15,6 +16,24 @@
 		"among",
 		"us"
 	],
+	"pkg": {
+		"scripts": [],
+		"assets": [
+		  "src/views/admin.html",
+		  "src/views/index.html",
+		  "src/public/admin.js",
+		  "src/public/game.js",
+		  "src/public/admin.css",
+		  "src/public/styles.css",
+		  "src/public/sounds/*.mp3",
+		  "src/public/images/emergency-meeting.jpg",
+		  "src/public/images/report.png"
+		],
+		"targets": [
+		  "latest-macos-x64",
+		  "latest-win-x64"
+		]
+	},
 	"author": "Michael Gira",
 	"license": "UNLICENSED",
 	"bugs": {

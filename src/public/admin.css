@@ -1,3 +1,100 @@
 h1 {
-	font-family: 'Comic Sans MS';
+	font-family: 'VCR OSD Mono', sans-serif;
+	margin: auto;
+	text-align: center;
+}
+
+.start-game {
+	max-width: 10rem;
+	border-radius: 5px;
+	display: inline-block;
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+
+#admin-buttons {
+	display: flex;
+	justify-content: center;
+}
+
+.text-class {
+	color: white;
+}
+
+body {
+	background-color: black;
+	font-family: 'Varela Round';
+}
+
+head {
+	background-color: black;
+	font-family: 'Varela Round';
+}
+
+.input-section {
+	display: flex;
+	align-items: center;
+	background: darkgray;
+	justify-content: space-between;
+	border-radius: 5px;
+	/* padding-left: 5%; */
+	margin: 0% 5% 0%;
+	margin-bottom: 5%;
+}
+
+.task-input-box {
+	flex: 1;
+	border: none;
+	outline: none;
+	background: transparent;
+	padding-left: 5%;
+}
+
+.add-task-button {
+	background: rgb(88, 87, 87);
+	padding-right: 5%;
+	padding-left: 5%;
+	color: white;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+ul li {
+	list-style: none;
+	user-select: none;
+	cursor: pointer;
+	color: white;
+
+}
+
+.listed-tasks {
+	margin-top: 10%;
+	margin-left: 2%;
+	padding-top: 5%;
+	margin-bottom: 5%;
+}
+
+ul li span {
+	position: absolute;
+	right: 0;
+	width: 40px;
+	height: 40px;
+	font-size: 22px;
+	color: #555;
+	line-height: 40px;
+	text-align: center;
+	border-radius: 50%;
+}
+
+ul li span::hover {
+	background: #edeef0;
+}
+
+.tasks-header {
+	margin-top: 5%;
 }

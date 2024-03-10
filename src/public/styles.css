@@ -1,17 +1,62 @@
 h1 {
-	font-family: 'Comic Sans MS';
+	font-family: 'VCR OSD Mono', sans-serif;
+	text-align: center;
+}
+
+.main-content {
+	margin-top: 7%;
 }
 
 button {
+	margin: auto;
+	text-align: center;
 	width: 100%;
 	max-width: 10rem;
 	border-radius: 1rem;
+	background-color: darkgray;
+}
+
+.text-class {
+	color: white;
+}
+
+body {
+	background-color: black;
+	font-family: 'Varela Round';
 }
 
 img {
-	width: 100%;
+	display: inline-block;
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#images {
+	display: flex;
+    justify-content: center;
+	margin-bottom: 5%;
+}
+
+#emergency-meeting {
+	background-color: #3E7A9F;
 }
 
 #enable-sound {
 	display: block;
+	margin-bottom: 5%;
+}
+
+.task-section {
+	margin-top: 8%;
+	margin-left: 2%;
+}
+
+.progress-header {
+	margin-left: 2%;
+}
+
+a {
+	font-family: 'VCR OSD Mono', sans-serif;
+	text-align: center;
 }

@@ -54,10 +54,16 @@ socket.on('tasks', tasks => {
 
 socket.on('role', role => {
 	hideRole();
+	let isImpostor = (role === "Impostor");
 	const role$ = document.createElement('a');
 	role$.classList.add('role');
+	if (isImpostor) {
+		role$.style.color = "red";
+	}
+	role$.style.textAlign = "center";
+	role$.style.justifyContent = "center";
 	role$.appendChild(
-		document.createTextNode(`You are a(n) ${role}. Click to dismiss.`)
+		document.createTextNode(isImpostor ? `You are an ${role}. Click to dismiss.`: `You are a ${role}. Click to dismiss.`)
 	);
 	role$.onclick = () => hideRole();
 
