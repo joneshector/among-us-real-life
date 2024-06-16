@@ -25,17 +25,17 @@ Audio recordings from [https://www.voicy.network/pages/among-us](https://www.voi
 ### Admin Panel
 
 <p float="left">
-    <img src="media/among_us_admin_panel.png" width="20%">
-    <img src="media/among_us_admin_panel_2.png" width="20%">
+    <img src="media/among_us_admin_panel.png" width="25%">
+    <img src="media/among_us_admin_panel_2.png" width="25%">
 </p>
 
 ### User View
 
 <p float="left">
-    <img src="media/among_us_user_UI_pre_start_with_sound.png" width="20%">
-    <img src="media/among_us_user_UI_started_with_sound.png" width="20%">
-    <img src="media/among_us_user_UI_started_without_sound.png" width="20%">
-    <img src="media/among_us_user_UI_started_with_sound_progress.png" width="20%">
+    <img src="media/among_us_user_UI_pre_start_with_sound.png" width="25%">
+    <img src="media/among_us_user_UI_started_with_sound.png" width="25%">
+    <img src="media/among_us_user_UI_started_without_sound.png" width="25%">
+    <img src="media/among_us_user_UI_started_with_sound_progress.png" width="25%">
 </p>
 
 ## Usage
